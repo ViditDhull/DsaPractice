@@ -17,10 +17,22 @@ class HashTable:
         h = self.get_hash(key)
         return self.arr[h]
 
+    def __delitem__(self,key):
+        h = self.get_hash(key)
+        self.arr[h] = None
+
 t = HashTable()
 t['March 1'] = 12
 t['March 2'] = 13
 t['March 3'] = 11
 
 print(t['March 2'])
+print(t.arr)
+
+t['March 2'] = 15
+print(t['March 2'])
+print(t.arr)
+
+del t['March 3']
+print(t['march 3'])
 print(t.arr)
